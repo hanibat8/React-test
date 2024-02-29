@@ -7,17 +7,21 @@ export default function User({pic,name,githubUrl}) {
 
   return (
     <>
-        <div className='container user-container' onClick={()=>setIsModalOpen(true)}>
-            <div><img className='user-pic' src={pic}/></div>
-            <h2>{name}</h2>
-            <div> {githubUrl}</div>
+        <div className='container'>
+          <div className='user-container' onClick={()=>setIsModalOpen(true)}>
+          <div className='user-pic-container'><img className='user-pic' src={pic}/></div>
+            <h3>{name}</h3>
+            <h4 className='user-github-url'> {githubUrl}</h4>
+          </div>
         </div>
         <ReactModal isOpen={isModalOpen} onRequestClose={()=>setIsModalOpen(false)} style={{overlay:{backgroundColor: 'rgba(0, 0, 0, 0.8)'},content:{margin:'5rem auto',height:'15rem'}}}>
-        <div className='container user-container' >
-            <div><img className='user-pic' src={pic}/></div>
-            <h2>{name}</h2>
-            <div> {githubUrl}</div>
-        </div>
+          <div className='container' >
+            <div className='user-container'>
+              <div><img className='user-pic' src={pic}/></div>
+              <h3 className='user-github-url'>{name}</h3>
+              <h4 className='user-github-url'> {githubUrl}</h4>
+            </div>        
+          </div>
         </ReactModal>
     </>
   )
